@@ -34,13 +34,23 @@ import com.example.consumerestapi.ui.home.viewmodel.KontakUIState
 
 @Composable
 fun HomeScreen(
-    kontakUIState: KontakUIState, retryAction: () -> Unit, modifier: Modifier = Modifier
+    kontakUIState: KontakUIState,
+    retryAction: () -> Unit,
+    modifier: Modifier = Modifier,
+    onDetailClick: (Kontak) -> Unit,
+    onDeleteClick: (Kontak) -> Unit = {}
 ){
     when (kontakUIState){
         is KontakUIState.Loading -> OnLoading(modifier = modifier.fillMaxSize())
         is KontakUIState.Success -> KontakLayout(
             kontak = kontakUIState.kontak,
-            modifier = modifier.fillMaxWidth())
+            modifier = modifier.fillMaxWidth(),
+            onDetailClick ={
+                onDetailClick(it.id)
+            },
+            onDeleteClick={
+                onDeleteClick(it)
+            })
         is KontakUIState.Error -> OnError(retryAction, modifier = modifier.fillMaxSize())
     }
 }
