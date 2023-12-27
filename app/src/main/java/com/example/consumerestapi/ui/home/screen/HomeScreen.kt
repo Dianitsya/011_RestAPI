@@ -110,7 +110,7 @@ fun KontakCard(
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(Modifier.weight(1f))
-
+                IconButton(onClick = {onDeleteClick(kontak)}){
                     Icon(
                         imageVector = Icons.Default.Phone,
                         contentDescription = null,
