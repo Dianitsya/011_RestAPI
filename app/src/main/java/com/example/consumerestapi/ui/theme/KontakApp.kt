@@ -20,8 +20,8 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.consumerestapi.R
-import com.example.consumerestapi.ui.home.screen.HomeScreen
-import com.example.consumerestapi.ui.home.viewmodel.HomeViewModel
+import com.example.consumerestapi.ui.home.kontak.screen.HomeScreen
+import com.example.consumerestapi.ui.home.kontak.screen.viewmodel.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
