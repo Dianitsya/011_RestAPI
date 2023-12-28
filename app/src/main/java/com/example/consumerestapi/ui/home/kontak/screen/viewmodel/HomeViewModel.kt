@@ -17,28 +17,29 @@ sealed class KontakUIState {
     object Loading : KontakUIState()
 }
 
-class HomeViewModel(private val kontakRepository: KontakRepository) : ViewModel(){
-    var kontakUIState : KontakUIState by mutableStateOf(KontakUIState.Loading)
+class HomeViewModel(private val kontakRepository: KontakRepository) : ViewModel() {
+    var kontakUIState: KontakUIState by mutableStateOf(KontakUIState.Loading)
         private set
 
     init {
         getKontak()
     }
 
-    fun getKontak(){
+    fun getKontak() {
         viewModelScope.launch {
-            kontakUIState = try{
+            kontakUIState = try {
                 KontakUIState.Success(kontakRepository.getKontak())
-            }catch (e: IOException){
+            } catch (e: IOException) {
                 KontakUIState.Error
-            }catch (e: HttpException){
+            } catch (e: HttpException) {
                 KontakUIState.Error
             }
         }
     }
 
+
     fun deleteKontak(id: Int){
-        viewModelScope.Launch{
+        viewModelScope.launch {
             try {
                 kontakRepository.deleteKontak(id)
             } catch (e: IOException){
