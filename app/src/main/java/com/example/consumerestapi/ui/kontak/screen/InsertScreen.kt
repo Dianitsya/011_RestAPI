@@ -36,7 +36,7 @@ import kotlinx.coroutines.launch
 fun FormInputSiswa(
     insertUiEvent: InsertUiEvent,
     modifier: Modifier = Modifier,
-    onValueChage: (InsertUiEvent) -> Unit = {},
+    onValueChange: (InsertUiEvent) -> Unit = {},
     enable: Boolean = true
 ){
     Column (
@@ -45,7 +45,7 @@ fun FormInputSiswa(
     ) {
         OutlinedTextField(
             value = insertUiEvent.nama,
-            onValueChange ={onValueChage(insertUiEvent.copy(nama = it)) },
+            onValueChange ={onValueChange(insertUiEvent.copy(nama = it)) },
             label =  { Text(text = "Nama")},
             modifier = Modifier.fillMaxWidth(),
             enabled = enable,
@@ -53,7 +53,7 @@ fun FormInputSiswa(
             )
         OutlinedTextField(
             value = insertUiEvent.email,
-            onValueChange ={onValueChage(insertUiEvent.copy(email = it)) },
+            onValueChange ={onValueChange(insertUiEvent.copy(email = it)) },
             label =  { Text(text = "Email")},
             modifier = Modifier.fillMaxWidth(),
             enabled = enable,
@@ -61,7 +61,7 @@ fun FormInputSiswa(
         )
         OutlinedTextField(
             value = insertUiEvent.nohp,
-            onValueChange ={onValueChage(insertUiEvent.copy(nohp = it)) },
+            onValueChange ={onValueChange(insertUiEvent.copy(nohp = it)) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             label =  { Text(text = "No HP")},
             modifier = Modifier.fillMaxWidth(),
@@ -95,7 +95,7 @@ fun EntryKontakBody(
     ){
         FormInputSiswa(
             insertUiEvent =  insertUiState.insertUiEvent,
-            onValueChage = onSiswaValueChange,
+            onValueChange = onSiswaValueChange,
             modifier = Modifier.fillMaxWidth()
         )
         Button(
