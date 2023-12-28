@@ -8,7 +8,6 @@ import com.example.consumerestapi.ui.home.kontak.screen.HomeScreen
 
 @Composable
 fun PengelolaHalaman(navController: NavHostController = rememberNavController()) {
-
     NavHost(
         navController = navController,
         startDestination = DestinasiHome.route,
@@ -16,7 +15,6 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
     ){
         composable(DestinasiHome.route){
             HomeScreen(naviateToItemEntry = {
-
             }
         }
     }
