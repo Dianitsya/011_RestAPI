@@ -128,8 +128,8 @@ fun KontakCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = kontak.nama,
-                    style = MaterialTheme.typography.titleLarge,
+                    text = kontak.email,
+                    style = MaterialTheme.typography.titleMedium,
                 )
                 Spacer(Modifier.weight(1f))
                 IconButton(onClick = {onDeleteClick(kontak)}){
@@ -138,16 +138,18 @@ fun KontakCard(
                         contentDescription = null,
                     )
                 }
+                Text(
+                    text = kontak.nama,
+                    style = MaterialTheme.typography.titleLarge,
+                )
+
 
                 Text(
                     text = kontak.nohp,
                     style = MaterialTheme.typography.titleMedium,
                 )
             }
-            Text(
-                text = kontak.alamat,
-                style = MaterialTheme.typography.titleMedium,
-            )
+
         }
     }
 }
