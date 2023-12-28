@@ -23,9 +23,12 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.consumerestapi.navigation.DestinasiNavigasi
+import com.example.consumerestapi.ui.home.kontak.screen.viewmodel.InsertUiEvent
+import com.example.consumerestapi.ui.home.kontak.screen.viewmodel.InsertUiState
 import com.example.consumerestapi.ui.home.kontak.screen.viewmodel.InsertViewModel
 import com.example.consumerestapi.ui.theme.PenyediaViewModel
 import com.example.consumerestapi.ui.theme.TopAppBarKontak
+import kotlinx.coroutines.launch
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -43,7 +46,7 @@ fun FormInputSiswa(
         OutlinedTextField(
             value =  insertUiEvent.nama,
             onValueChange = {onValueChage(insertUiEvent.copy(nama = it))},
-            label = { Text("Nama")},
+            label = { Text("Nama") },  // Fix the property name here
             modifier = Modifier.fillMaxWidth(),
             enable = enable,
             singleLine = true
@@ -57,7 +60,7 @@ fun FormInputSiswa(
             singleLine = true
         )
         OutlinedTextField(
-            value =  insertUiEvent.nama,
+            value =  insertUiEvent.nohp,
             onValueChange = {onValueChage(insertUiEvent.copy(nohp = it))},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             label = {Text("NO HP")},
@@ -132,7 +135,7 @@ fun EntryKontakScreen(
             insertUiState = viewModel.insertKontakState,
             onSiswaValueChange = viewModel::updateInsertKontakState,
             onSaveClick = {
-                coroutineScope.Launch{
+                coroutineScope.launch{
                     viewModel.InsertKontak()
                     navigateBack()
                 }
