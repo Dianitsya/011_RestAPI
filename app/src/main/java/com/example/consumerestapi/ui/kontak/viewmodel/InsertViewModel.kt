@@ -1,7 +1,5 @@
-package com.example.consumerestapi.ui.home.kontak.screen.viewmodel
+package com.example.consumerestapi.ui.kontak.viewmodel
 
-import android.provider.ContactsContract.CommonDataKinds.Email
-import android.provider.ContactsContract.Intents.Insert
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -46,10 +44,10 @@ fun InsertUiEvent.toKontak(): Kontak = Kontak(
     email= email,
     nohp = nohp,
 )
-fun Kontak.toUiStateKontak(): InsertUiState= InsertUiState(
+fun Kontak.toUiStateKontak(): InsertUiState = InsertUiState(
     insertUiEvent = toInsertUiEvent()
 )
-fun Kontak.toInsertUiEvent(): InsertUiEvent= InsertUiEvent(
+fun Kontak.toInsertUiEvent(): InsertUiEvent = InsertUiEvent(
     id = id,
     nama= nama,
     email= email,

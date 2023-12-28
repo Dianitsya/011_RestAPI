@@ -1,24 +1,20 @@
-package com.example.consumerestapi.ui.theme
+package com.example.consumerestapi.ui.homee
 
+import android.text.Spannable.Factory
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.consumerestapi.KontakAplikation
 import com.example.consumerestapi.ui.kontak.viewmodel.HomeViewModel
-import com.example.consumerestapi.ui.kontak.viewmodel.InsertViewModel
 
-object PenyediaViewModel {
+object PenyediaViewModel{
     val Factory = viewModelFactory {
         initializer {
-            HomeViewModel(aplikasiKontak().container.KontakRepository)
+            HomeViewModel(aplikasiMars().container.KontakRepository)
         }
-
-        initializer {
-            InsertViewModel(aplikasiKontak().container.KontakRepository)
-        }
-
     }
 }
-fun CreationExtras.aplikasiKontak(): KontakAplikation =
+
+fun CreationExtras.aplikasiMars(): KontakAplikation =
     (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as KontakAplikation)

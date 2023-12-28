@@ -1,4 +1,4 @@
-package com.example.consumerestapi.ui.home.kontak.screen
+package com.example.consumerestapi.ui.kontak.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -15,7 +15,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -31,7 +30,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.consumerestapi.R
 import com.example.consumerestapi.model.Kontak
-import com.example.consumerestapi.ui.home.kontak.screen.viewmodel.KontakUIState
+import com.example.consumerestapi.ui.kontak.viewmodel.KontakUIState
 
 @Composable
 fun HomeStatus(
@@ -142,8 +141,6 @@ fun KontakCard(
                     text = kontak.nama,
                     style = MaterialTheme.typography.titleLarge,
                 )
-
-
                 Text(
                     text = kontak.nohp,
                     style = MaterialTheme.typography.titleMedium,

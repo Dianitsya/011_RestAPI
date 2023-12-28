@@ -1,4 +1,4 @@
-package com.example.consumerestapi.ui.home.kontak.screen
+package com.example.consumerestapi.ui.kontak.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,9 +23,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.consumerestapi.navigation.DestinasiNavigasi
-import com.example.consumerestapi.ui.home.kontak.screen.viewmodel.InsertUiEvent
-import com.example.consumerestapi.ui.home.kontak.screen.viewmodel.InsertUiState
-import com.example.consumerestapi.ui.home.kontak.screen.viewmodel.InsertViewModel
+import com.example.consumerestapi.ui.kontak.viewmodel.InsertUiEvent
+import com.example.consumerestapi.ui.kontak.viewmodel.InsertUiState
+import com.example.consumerestapi.ui.kontak.viewmodel.InsertViewModel
 import com.example.consumerestapi.ui.theme.PenyediaViewModel
 import com.example.consumerestapi.ui.theme.TopAppBarKontak
 import kotlinx.coroutines.launch
@@ -44,28 +44,28 @@ fun FormInputSiswa(
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         OutlinedTextField(
-            value =  insertUiEvent.nama,
-            onValueChange = {onValueChage(insertUiEvent.copy(nama = it))},
-            label = { Text("Nama") },  // Fix the property name here
+            value = insertUiEvent.nama,
+            onValueChange ={onValueChage(insertUiEvent.copy(nama = it)) },
+            label =  { Text(text = "Nama")},
             modifier = Modifier.fillMaxWidth(),
-            enable = enable,
+            enabled = enable,
+            singleLine = true
+            )
+        OutlinedTextField(
+            value = insertUiEvent.email,
+            onValueChange ={onValueChage(insertUiEvent.copy(email = it)) },
+            label =  { Text(text = "Email")},
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enable,
             singleLine = true
         )
         OutlinedTextField(
-            value =  insertUiEvent.email,
-            onValueChange = {onValueChage(insertUiEvent.copy(email = it))},
-            label = {Text("Email")},
-            modifier = Modifier.fillMaxWidth(),
-            enable = enable,
-            singleLine = true
-        )
-        OutlinedTextField(
-            value =  insertUiEvent.nohp,
-            onValueChange = {onValueChage(insertUiEvent.copy(nohp = it))},
+            value = insertUiEvent.nohp,
+            onValueChange ={onValueChage(insertUiEvent.copy(nohp = it)) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            label = {Text("NO HP")},
+            label =  { Text(text = "No HP")},
             modifier = Modifier.fillMaxWidth(),
-            enable = enable,
+            enabled = enable,
             singleLine = true
         )
         if(enable){
@@ -125,7 +125,7 @@ fun EntryKontakScreen(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             TopAppBarKontak(
-                title = DestinasiEntry.titleRes ,
+                title = DestinasiEntry.titleRes,
                 canNavigateBack = true,
                 scrollBehavior = scrollBehavior,
                 navigateUp = navigateBack
@@ -136,7 +136,7 @@ fun EntryKontakScreen(
             onSiswaValueChange = viewModel::updateInsertKontakState,
             onSaveClick = {
                 coroutineScope.launch{
-                    viewModel.InsertKontak()
+                    viewModel.insertKontak()
                     navigateBack()
                 }
 
