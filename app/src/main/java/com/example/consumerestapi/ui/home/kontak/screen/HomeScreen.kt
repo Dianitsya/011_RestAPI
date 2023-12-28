@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -33,11 +34,11 @@ import com.example.consumerestapi.model.Kontak
 import com.example.consumerestapi.ui.home.kontak.screen.viewmodel.KontakUIState
 
 @Composable
-fun HomeScreen(
+fun HomeStatus(
     kontakUIState: KontakUIState,
     retryAction: () -> Unit,
     modifier: Modifier = Modifier,
-    onDetailClick: (Kontak) -> Unit,
+    onDetailClick: (Int) -> Unit = {},
     onDeleteClick: (Kontak) -> Unit = {}
 ){
     when (kontakUIState){
@@ -133,7 +134,7 @@ fun KontakCard(
                 Spacer(Modifier.weight(1f))
                 IconButton(onClick = {onDeleteClick(kontak)}){
                     Icon(
-                        imageVector = Icons.Default.Phone,
+                        imageVector = Icons.Default.Delete,
                         contentDescription = null,
                     )
                 }

@@ -1,7 +1,6 @@
-package com.example.consumerestapi.navigasi
+package com.example.consumerestapi.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
