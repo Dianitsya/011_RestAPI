@@ -12,8 +12,10 @@ import com.example.consumerestapi.ui.kontak.screen.DestinasiEntry
 import com.example.consumerestapi.ui.kontak.screen.DestinasiHome
 import com.example.consumerestapi.ui.kontak.screen.DetailDestination
 import com.example.consumerestapi.ui.kontak.screen.DetailScreen
+import com.example.consumerestapi.ui.kontak.screen.EditDestination
 import com.example.consumerestapi.ui.kontak.screen.EntryKontakScreen
 import com.example.consumerestapi.ui.kontak.screen.HomeScreen
+import com.example.consumerestapi.ui.kontak.screen.ItemEditScreen
 
 @Composable
 fun PengelolaHalaman(
@@ -56,9 +58,34 @@ fun PengelolaHalaman(
                     onEditClick = { itemId ->
                         navController.navigate("${EditDestination.route}/$itemId")
                         println(itemId)
-                    }
+                    },
+
                 )
             }
+        }
+        composable(
+            EditDestination.routeWithArgs,
+            arguments = listOf(navArgument(EditDestination.kontakId) {
+                type = NavType.IntType
+            })
+        ) {
+            ItemEditScreen(navigateBack = { navController.popBackStack() },
+                onNavigateUp = {
+                    navController.navigate(DestinasiHome.route) {
+                        popUpTo(DestinasiHome.route) {
+                            inclusive = true
+                        }
+                    }
+                })
+        }
+        composable(DestinasiHome.route) {
+            HomeScreen(navigateToItemEntry = {
+                navController.navigate(DestinasiEntry.route)
+            },
+                onDetailClick = { itemId ->
+                    navController.navigate("${DetailDestination.route}/$itemId")
+                    println(itemId)
+                })
         }
     }
 }

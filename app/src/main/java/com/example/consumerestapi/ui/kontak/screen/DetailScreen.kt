@@ -23,8 +23,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.consumerestapi.model.Kontak
 import com.example.consumerestapi.navigation.DestinasiNavigasi
+import com.example.consumerestapi.ui.homee.PenyediaViewModel
 import com.example.consumerestapi.ui.homee.TopAppBarKontak
 import com.example.consumerestapi.ui.kontak.viewmodel.DetailViewModel
 import com.example.consumerestapi.ui.kontak.viewmodel.DetailsKontakUiState
@@ -42,7 +44,7 @@ fun DetailScreen(
     onEditClick: (Int) -> Unit,
     modifier: Modifier= Modifier,
     navigateBack: () -> Unit,
-    detailsViewModel: DetailViewModel
+    detailsViewModel: DetailViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ){
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     Scaffold (

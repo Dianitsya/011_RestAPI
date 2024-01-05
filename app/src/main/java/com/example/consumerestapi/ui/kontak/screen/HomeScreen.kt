@@ -38,11 +38,11 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.consumerestapi.R
 import com.example.consumerestapi.model.Kontak
 import com.example.consumerestapi.navigation.DestinasiNavigasi
+import com.example.consumerestapi.ui.homee.PenyediaViewModel
+import com.example.consumerestapi.ui.homee.TopAppBarKontak
 import com.example.consumerestapi.ui.kontak.viewmodel.HomeViewModel
 import com.example.consumerestapi.ui.kontak.viewmodel.KontakUIState
-import com.example.consumerestapi.ui.theme.PenyediaViewModel
-import com.example.consumerestapi.ui.theme.TopAppBar
-import com.example.consumerestapi.ui.theme.TopAppBarKontak
+
 
 
 object  DestinasiHome : DestinasiNavigasi {

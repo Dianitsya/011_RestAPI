@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.consumerestapi.repository.KontakRepository
+import com.example.consumerestapi.ui.kontak.screen.EditDestination
 import kotlinx.coroutines.launch
 
 class EditViewModel(
